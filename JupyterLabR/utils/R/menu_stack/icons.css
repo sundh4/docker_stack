@@ -1,0 +1,115 @@
+.custom_message_span {
+    color: darkslateblue;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.run-current-cell:after {
+    margin-left: 5px;
+    content: "Run";
+}
+
+
+.run-all:after {
+    margin-left: 5px;
+    content: "Run All"
+}
+
+.run-all-above:after {
+    margin-left: 5px;
+    content: "Run All Above";
+}
+
+.run-current-cell:after {
+    margin-left: 5px;
+    content: "Run";
+}
+
+.fa-align-left {
+    font-size: 19px;
+}
+
+
+.action_icon {
+    margin-left: 15px;
+}
+
+.action_icon_info {
+    margin-left: 20px;
+    font-size: 1.6em;
+    line-height: 1.7em;
+}
+
+
+#notebook_action_div {
+   /*margin-right: -80px;*/
+    margin-right: 20%;
+    position: relative;
+   /* top: 45px;*/
+}
+/*
+#action_buttons {
+    margin-right: 20%;
+    position: relative;
+    top: 45px;
+}*/
+
+.badge-margin {
+    margin: 5px;
+}
+
+.tooltip1 {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip1 .tooltiptext1 {
+    visibility: hidden;
+    width: 300px;
+    background-color: lightgrey;
+    color: black;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 105%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top:7px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.78em;
+}
+
+.tooltip1 .tooltiptext1::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent lightgrey transparent;
+}
+
+.tooltip1:hover .tooltiptext1 {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltiptext1 ul li {
+    margin: 2px;
+}
+
+.badge-style {
+    color: black;
+    background-color: white;
+    border: 1px solid #777777;
+}
+
+#notebook_action_div .line-height {
+    line-height: 1.7;
+}
+ #like:hover {
+     cursor: pointer;
+}

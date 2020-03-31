@@ -1,0 +1,6 @@
+Type: IPython Notebook Extension
+Name: MenuStack
+Link: README.md
+Description: Customise menu items and its actions.
+Main: main.js
+Compatibility: 5.x

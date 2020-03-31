@@ -1,0 +1,178 @@
+{% extends "page.html" %}
+{% if announcement_login %}
+  {% set announcement = announcement_login %}
+{% endif %}
+
+{% block login_widget %}
+{% endblock %}
+
+{% block main %}
+
+{% block login %}
+<div id="login-main" class="container">
+{% if custom_html %}
+{{ custom_html | safe }}
+{% elif login_service %}
+<!-- <div class="service-login">
+  <a role="button" class='btn btn-jupyter btn-lg' href='{{authenticator_login_url}}'>
+    Sign in with {{login_service}}
+  </a>
+</div> -->
+{% else %}
+<!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script> -->
+<script>
+  // set env
+  const alEnv = 'beta'
+  let currentDomain = window.location.hostname;
+  let splitCurrDomain = currentDomain.split(".");
+  let tlDomain = splitCurrDomain[splitCurrDomain.length-1];
+  let directurl = ''
+  let authDomain = ''
+  if (tlDomain === 'fr') {
+    if (alEnv === 'beta') {
+      directurl = encodeURIComponent('https://beta-kube.alphien.fr/hub/login');
+      authDomain = 'https://beta-auth.alphien.fr';
+    } else {
+      directurl = encodeURIComponent('https://studio.alphien.fr');
+      authDomain = 'https://auth.alphien.fr';
+    }
+   } else {
+    if (alEnv === 'beta') {
+      directurl = encodeURIComponent('https://beta-kube.alphien.com/hub/login');
+      authDomain = 'https://beta-auth.alphien.com';
+    } else if (alEnv === 'live') {
+      directurl = encodeURIComponent('https://lab.alphien.com/hub/login');
+      authDomain = 'https://auth.alphien.com';
+    } else {
+      directurl = encodeURIComponent('http://localhost:4436/hub/login');
+      authDomain = 'http://localhost';
+    }
+   }
+  function getCookie (cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+   }
+   function setAlCookie (name, value, days) {
+      // variable
+      var domain, domainParts, date, expires, host;
+      // set day
+      if (days){
+        date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        expires = "; expires="+date.toGMTString();
+      } else {
+        expires = "";
+      }
+      // check host
+      host = location.host;
+      if (host.split('.').length === 1) {
+        // no "." in a domain - it's localhost or something similar
+        document.cookie = name + "=" + value + expires + "; path=/";
+      } else {
+        // get parent domain
+        domainParts = host.split('.');
+        domainParts.shift();
+        domain = '.' + domainParts.join('.');
+        // try add to parent
+        document.cookie = name + "=" + value + expires + "; path=/; domain=" + domain;
+        // check parent cookie
+        if (getCookie(name) == "" || getCookie(name) !== value) {
+          domain = '.' + host;
+          document.cookie = name+"="+value+expires+"; path=/; domain=" + domain;
+        }
+      }
+   }
+   function checkToken (token) {
+    if (token) {
+      let url = 'https://beta-kube.alphien.com/hub/api/authorizations/token/1cdca89242f8418999ce1a45bf4daa5e'
+      fetch(url, {
+        headers: {
+          Accept: "application/json"
+        }
+      }).then((response) => {
+        console.log(response)
+      }).catch((error) => {
+        console.log(error)
+      })
+    }
+   }
+   setTimeout(function () {
+     if (!getCookie('jupyter_alid') || !getCookie('jupyterhub-session-id')) {
+      window.location.replace(authDomain + '?c=logout&s=' + directurl);
+     }
+   }, 1000)
+</script>
+<!-- <form action="{{login_url}}?next={{next}}" method="post" role="form">
+  <div class="auth-form-header">
+    Sign in
+  </div>
+  <div class='auth-form-body'>
+
+    <p id='insecure-login-warning' class='hidden'>
+    Warning: JupyterHub seems to be served over an unsecured HTTP connection.
+    We strongly recommend enabling HTTPS for JupyterHub.
+    </p>
+
+    {% if login_error %}
+    <p class="login_error">
+      {{login_error}}
+    </p>
+    {% endif %}
+    <label for="username_input">Username:</label>
+    <input
+      id="username_input"
+      type="text"
+      autocapitalize="off"
+      autocorrect="off"
+      class="form-control"
+      name="username"
+      val="{{username}}"
+      tabindex="1"
+      autofocus="autofocus"
+    />
+    <label for='password_input'>Password:</label>
+    <input
+      type="password"
+      class="form-control"
+      name="password"
+      id="password_input"
+      tabindex="2"
+    />
+
+    <input
+      type="submit"
+      id="login_submit"
+      class='btn btn-jupyter'
+      value='Sign In'
+      tabindex="3"
+    />
+  </div>
+</form> -->
+{% endif %}
+</div>
+{% endblock login %}
+
+{% endblock %}
+
+{% block script %}
+{{ super() }}
+<!-- <script>
+if (window.location.protocol === "http:") {
+  // unhide http warning
+  var warning = document.getElementById('insecure-login-warning');
+  warning.className = warning.className.replace(/\bhidden\b/, '');
+}
+</script> -->
+
+{% endblock %}

@@ -1,0 +1,17 @@
+from .getHistory import getHistory
+
+def getFundamental(ticker,field="close price",debug=False):
+    '''
+        Function to get securities data from the database
+        Input
+            ticker(str) : ticker/list of tickers
+            field(str) : field/list of fields
+            debug(bool): set to True to print request
+        Output
+            Pandas dataframe
+        Example
+            import libal.database as db
+            db.getFundamental("BTCUSD Bitfinex")
+    '''
+    data = getHistory(ticker,field,'fundamental',debug=debug)
+    return data

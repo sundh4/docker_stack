@@ -1,0 +1,4 @@
+.First <- function(){
+  source("/mnt/public/Libs/.sourceAlfunction.r")
+  source("/mnt/public/Libs/.sourceQlib.r")
+}

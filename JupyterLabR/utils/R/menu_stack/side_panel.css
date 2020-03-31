@@ -1,0 +1,153 @@
+#side_panel {
+    position: relative;
+    //top: 0;
+    left: 0;
+    height: 100%;
+    font-size: 0.9em;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    float: left;
+}
+
+.side_panel_splitbar {
+    position: absolute;
+    top: 80px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.side_panel_inner {
+    top: 0;
+    left: 0;
+    overflow: auto;
+    height: 87%;
+}
+
+.side_panel_inner_header {
+    /*margin-top: 1%;*/
+    /*height: 3%;*/
+    /*max-height: 75px;*/
+    min-height: 50px;
+}
+
+/*riyan*/
+    #notebook_action_div{
+        display: none !important;
+    }
+    .side_panel_search{
+        padding: 0px 20px 10px;
+    }
+    .side_panel_list {
+        height: 72%;
+        margin-right: 5px;
+        top: 0;
+        left: 0;
+        overflow: auto;
+    }
+    .side_panel_list > ul {
+        padding-left: 20px;
+    }
+    .jstree-default .alp-active-note{
+        background: #35d4bc !important;
+        color: #fff !important;
+        font-weight: bold;
+    }
+    .custom_overflow {
+        padding-bottom: 20px;
+    }
+    
+    @media (max-height: 650px){
+        .side_panel_list{
+            height: 65%;
+        }
+    }
+
+    @media (max-height: 610px){
+        .side_panel_list{
+            height: 61%;
+        }
+    }
+
+/*riyan*/
+
+
+body {
+    -ms-overflow-style:none;
+    overflow: hidden;
+}
+
+.custom_message_span_style {
+    background-color: #35d4bc;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.custom_message_span_style_error {
+    background-color: darkred;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.side-panel-btn {
+    margin-top: 3px;
+    margin-right: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 0px solid transparent;
+    background-color: transparent;
+}
+
+@-moz-document url-prefix() { .side-panel-btn {  margin-left: 15px; } }
+
+.nav-bar-menu-btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 0px solid transparent;
+    background-color: transparent;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.nav-bar-menu-btn:hover {
+    cursor: pointer;
+}
+
+.nav-bar-header {
+    display: inline-block;
+}
+
+.notebook-rename:hover {
+    cursor: pointer;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+
+#fileEdit {
+    margin-left: 7px;
+}
+
+span.save_widget {
+    height: auto;
+}
+
